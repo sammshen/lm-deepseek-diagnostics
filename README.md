@@ -1,7 +1,13 @@
 # TL;DR
 
 KV shape mismatch due to Deepseek V2 and V3 specific MLA (Multi-head Latent Attention)
-KV optimizations that LMCache seems to be incompatible with right now.
+KV optimizations that LMCache is incompatible with right now. LMCache only supports
+Flash Attention right now but deepseek uses MLA Attention.
+
+`model_input.attn_metadata` should be `FlashAttentionMetadata` but deepseek uses `MLAAttentionImpl`
+(I specifically ran into `DeepseekV2MLAAttention` with deepseek v2)
+
+Otherwise, the MMLU benchmarks have no change across usage with or without lmcache as expected.
 
 # Set Up
 
