@@ -5,7 +5,8 @@ KV optimizations that LMCache is incompatible with right now. LMCache only suppo
 Flash Attention right now but deepseek uses MLA Attention.
 
 `model_input.attn_metadata` should be `FlashAttentionMetadata` but deepseek uses `MLAAttentionImpl`
-(I specifically ran into `DeepseekV2MLAAttention` with deepseek v2)
+(I specifically ran into `DeepseekV2MLAAttention` with deepseek v2 while I think r1 uses `FlashMLAMetadata`
+which may bypass lmcache and be disguised as flash attention)
 
 Otherwise, the MMLU benchmarks have no change across usage with or without lmcache as expected.
 
