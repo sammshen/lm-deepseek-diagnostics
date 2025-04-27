@@ -116,9 +116,6 @@ else:
 return num_heads, head_size
 ```
 
-Great [Article](https://medium.com/data-science/deepseek-v3-explained-1-multi-head-latent-attention-ed6bee2a67c4)
-to understand what MLA is.
-
 We should try to reproduce on some V2 or V3 model. [V2 uses MLA](https://arxiv.org/pdf/2405.04434).
 
 I will use `deepseek-ai/DeepSeek-V2-Lite`. As long as it uses MLA and we keep
@@ -126,6 +123,7 @@ I will use `deepseek-ai/DeepSeek-V2-Lite`. As long as it uses MLA and we keep
 
 2A. vllm v0 WITHOUT LMCACHE
 
+```bash
 VLLM_USE_V1=0 \
 VLLM_MLA_DISABLE=0 \
 python3 -m vllm.entrypoints.api_server \
@@ -138,9 +136,11 @@ python3 -m vllm.entrypoints.api_server \
   --gpu-memory-utilization 0.9 \
   --host 0.0.0.0 \
   --tensor-parallel-size 1
+```
 
 2B. vllm v0 WITH LMCACHE
 
+```bash
 LMCACHE_USE_EXPERIMENTAL=True \
 LMCACHE_TRACK_USAGE=false \
 VLLM_MLA_DISABLE=0 \
@@ -157,6 +157,7 @@ python3 -m vllm.entrypoints.api_server \
   --host 0.0.0.0 \
   --tensor-parallel-size 1 \
   --kv-transfer-config '{"kv_connector":"LMCacheConnector","kv_role":"kv_both","kv_parallel_size":2}'
+```
 
 Indeed, the accuracy is much higher as expected.
 
