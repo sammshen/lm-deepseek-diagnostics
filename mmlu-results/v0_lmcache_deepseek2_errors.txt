@@ -1,0 +1,342 @@
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request ad104bbb149d4b50a8ad189446855ddf.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 15b023019c394cd2a332b2618b36ff7c.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 232311ad749f4cd7b3b3b88e6692d9f7.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 5ba726b085f8400bb7ac7bb3e7ae109d.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request e1127f49f69147f8817f4f6f47dc73f2.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 67843c48d1b246eea043808da5b42ca8.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 3f917d13801c4cb385c2adbef0c5db0d.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 2c5334e2846c4a2196dcb859a964480f.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 4096430454d445029bf1a87c2d5fad5a.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request df07b3d8ec8843719315d21701b93870.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 3e86d4aadb5946609cf7d15c5ac229ab.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 2c5f4a8b6f444c90954bd05725f3fdab.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request f1a43dd9240e46d292aba9a560c0cfb1.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request c7640371168f4d989cd3e67da3e8c4bf.
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238] Exception in worker VllmWorkerProcess while processing method start_worker_execution_loop.
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238] Traceback (most recent call last):
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/vllm/vllm/executor/multiproc_worker_utils.py", line 232, in _run_worker_process
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     output = run_method(worker, method, args, kwargs)
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/vllm/vllm/utils.py", line 2449, in run_method
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     return func(*args, **kwargs)
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/vllm/vllm/worker/worker_base.py", line 91, in start_worker_execution_loop
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     output = self.execute_model(execute_model_req=None)
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/vllm/vllm/worker/worker_base.py", line 420, in execute_model
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     output = self.model_runner.execute_model(
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     return func(*args, **kwargs)
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/vllm/vllm/worker/model_runner.py", line 1750, in execute_model
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     get_kv_transfer_group().recv_kv_caches_and_hidden_states(
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/vllm/vllm/distributed/kv_transfer/kv_connector/lmcache_connector.py", line 70, in recv_kv_caches_and_hidden_states
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     retrieve_status = self.lmcache_should_retrieve(model_input)
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]   File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/lmcache/integration/vllm/vllm_adapter.py", line 173, in lmcache_should_retrieve
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238]     assert isinstance(model_input.attn_metadata, FlashAttentionMetadata), \
+(VllmWorkerProcess pid=75692) ERROR 04-27 03:18:54 [multiproc_worker_utils.py:238] AssertionError: Only FlashAttention backend is supported for now.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request ccecfebd264f464eb8f5829ff9c7996a.
+INFO 04-27 03:18:54 [async_llm_engine.py:211] Added request 0180ac938aea4a52bb3399c73498ae15.
+ERROR 04-27 03:18:54 [async_llm_engine.py:68] Engine background task failed
+ERROR 04-27 03:18:54 [async_llm_engine.py:68] Traceback (most recent call last):
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 58, in _log_task_completion
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     return_value = task.result()
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 864, in run_engine_loop
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     result = task.result()
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 787, in engine_step
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     request_outputs = await self.engine.step_async(virtual_engine)
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 356, in step_async
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     outputs = await self.model_executor.execute_model_async(
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/executor/executor_base.py", line 369, in execute_model_async
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     return await self._driver_execute_model_async(execute_model_req)
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/executor/mp_distributed_executor.py", line 209, in _driver_execute_model_async
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     return await self.driver_exec_model(execute_model_req)
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     result = self.fn(*self.args, **self.kwargs)
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/worker/worker_base.py", line 420, in execute_model
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     output = self.model_runner.execute_model(
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     return func(*args, **kwargs)
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/worker/model_runner.py", line 1750, in execute_model
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     get_kv_transfer_group().recv_kv_caches_and_hidden_states(
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/vllm/vllm/distributed/kv_transfer/kv_connector/lmcache_connector.py", line 70, in recv_kv_caches_and_hidden_states
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     retrieve_status = self.lmcache_should_retrieve(model_input)
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]   File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/lmcache/integration/vllm/vllm_adapter.py", line 173, in lmcache_should_retrieve
+ERROR 04-27 03:18:54 [async_llm_engine.py:68]     assert isinstance(model_input.attn_metadata, FlashAttentionMetadata), \
+ERROR 04-27 03:18:54 [async_llm_engine.py:68] AssertionError: Only FlashAttention backend is supported for now.
+Exception in callback _log_task_completion(error_callback=<bound method...7678471f37f0>>)(<Task finishe...ed for now.')>) at /home/samuelshen/vllm/vllm/engine/async_llm_engine.py:48
+handle: <Handle _log_task_completion(error_callback=<bound method...7678471f37f0>>)(<Task finishe...ed for now.')>) at /home/samuelshen/vllm/vllm/engine/async_llm_engine.py:48>
+Traceback (most recent call last):
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 58, in _log_task_completion
+    return_value = task.result()
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 864, in run_engine_loop
+    result = task.result()
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 787, in engine_step
+    request_outputs = await self.engine.step_async(virtual_engine)
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 356, in step_async
+    outputs = await self.model_executor.execute_model_async(
+  File "/home/samuelshen/vllm/vllm/executor/executor_base.py", line 369, in execute_model_async
+    return await self._driver_execute_model_async(execute_model_req)
+  File "/home/samuelshen/vllm/vllm/executor/mp_distributed_executor.py", line 209, in _driver_execute_model_async
+    return await self.driver_exec_model(execute_model_req)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/samuelshen/vllm/vllm/worker/worker_base.py", line 420, in execute_model
+    output = self.model_runner.execute_model(
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/worker/model_runner.py", line 1750, in execute_model
+    get_kv_transfer_group().recv_kv_caches_and_hidden_states(
+  File "/home/samuelshen/vllm/vllm/distributed/kv_transfer/kv_connector/lmcache_connector.py", line 70, in recv_kv_caches_and_hidden_states
+    retrieve_status = self.lmcache_should_retrieve(model_input)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/lmcache/integration/vllm/vllm_adapter.py", line 173, in lmcache_should_retrieve
+    assert isinstance(model_input.attn_metadata, FlashAttentionMetadata), \
+AssertionError: Only FlashAttention backend is supported for now.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 70, in _log_task_completion
+    raise AsyncEngineDeadError(
+vllm.engine.async_llm_engine.AsyncEngineDeadError: Task finished unexpectedly. This should never happen! Please open an issue on GitHub. See stack trace above for the actual cause.
+INFO:     127.0.0.1:43874 - "POST /generate HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 52, in generate
+    return await _generate(request_dict, raw_request=request)
+  File "/home/samuelshen/vllm/vllm/entrypoints/utils.py", line 63, in wrapper
+    return handler_task.result()
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 58, in _log_task_completion
+    return_value = task.result()
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 864, in run_engine_loop
+    result = task.result()
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 787, in engine_step
+    request_outputs = await self.engine.step_async(virtual_engine)
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 356, in step_async
+    outputs = await self.model_executor.execute_model_async(
+  File "/home/samuelshen/vllm/vllm/executor/executor_base.py", line 369, in execute_model_async
+    return await self._driver_execute_model_async(execute_model_req)
+  File "/home/samuelshen/vllm/vllm/executor/mp_distributed_executor.py", line 209, in _driver_execute_model_async
+    return await self.driver_exec_model(execute_model_req)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/samuelshen/vllm/vllm/worker/worker_base.py", line 420, in execute_model
+    output = self.model_runner.execute_model(
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/worker/model_runner.py", line 1750, in execute_model
+    get_kv_transfer_group().recv_kv_caches_and_hidden_states(
+  File "/home/samuelshen/vllm/vllm/distributed/kv_transfer/kv_connector/lmcache_connector.py", line 70, in recv_kv_caches_and_hidden_states
+    retrieve_status = self.lmcache_should_retrieve(model_input)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/lmcache/integration/vllm/vllm_adapter.py", line 173, in lmcache_should_retrieve
+    assert isinstance(model_input.attn_metadata, FlashAttentionMetadata), \
+AssertionError: Only FlashAttention backend is supported for now.
+INFO:     127.0.0.1:43996 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44004 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44016 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44018 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44034 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44042 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44052 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44062 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44078 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44090 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44106 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44118 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44134 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44144 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44148 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44162 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44168 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44180 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44190 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44196 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44206 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44214 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44226 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44228 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44244 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44260 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44272 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44280 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44294 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44300 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44306 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44316 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44328 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44344 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44360 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44376 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44378 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44392 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44404 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44416 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44430 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44440 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44448 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44450 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44460 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44466 - "POST /generate HTTP/1.1" 500 Internal Server Error
+INFO:     Shutting down
+INFO:     Waiting for connections to close. (CTRL+C to force quit)
+
+
+
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/entrypoints/api_server.py", line 82, in _generate
+    async for request_output in results_generator:
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 1045, in generate
+    async for output in await self.add_request(
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 116, in generator
+    raise result
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 58, in _log_task_completion
+    return_value = task.result()
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 864, in run_engine_loop
+    result = task.result()
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 787, in engine_step
+    request_outputs = await self.engine.step_async(virtual_engine)
+  File "/home/samuelshen/vllm/vllm/engine/async_llm_engine.py", line 356, in step_async
+    outputs = await self.model_executor.execute_model_async(
+  File "/home/samuelshen/vllm/vllm/executor/executor_base.py", line 369, in execute_model_async
+    return await self._driver_execute_model_async(execute_model_req)
+  File "/home/samuelshen/vllm/vllm/executor/mp_distributed_executor.py", line 209, in _driver_execute_model_async
+    return await self.driver_exec_model(execute_model_req)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/samuelshen/vllm/vllm/worker/worker_base.py", line 420, in execute_model
+    output = self.model_runner.execute_model(
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/worker/model_runner.py", line 1776, in execute_model
+    hidden_or_intermediate_states = model_executable(
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/model_executor/models/deepseek_v2.py", line 701, in forward
+    hidden_states = self.model(input_ids, positions, intermediate_tensors,
+  File "/home/samuelshen/vllm/vllm/compilation/decorators.py", line 172, in __call__
+    return self.forward(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/model_executor/models/deepseek_v2.py", line 659, in forward
+    hidden_states, residual = layer(positions, hidden_states, residual)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/model_executor/models/deepseek_v2.py", line 561, in forward
+    hidden_states = self.self_attn(
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/model_executor/models/deepseek_v2.py", line 478, in forward
+    return self.mla_attn(hidden_states_or_q_c,
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/samuelshen/vllm/vllm/attention/layer.py", line 233, in forward
+    return torch.ops.vllm.unified_attention(
+  File "/home/samuelshen/dev_venv/lib/python3.10/site-packages/torch/_ops.py", line 1123, in __call__
+    return self._op(*args, **(kwargs or {}))
+  File "/home/samuelshen/vllm/vllm/attention/layer.py", line 379, in unified_attention
+    output = self.impl.forward(self, query, key, value, kv_cache,
+  File "/home/samuelshen/vllm/vllm/attention/backends/mla/common.py", line 1436, in forward
+    output[:num_prefill_tokens] = self._forward_prefill(
+  File "/home/samuelshen/vllm/vllm/attention/backends/mla/common.py", line 1336, in _forward_prefill
+    context_output, context_lse = self._compute_prefill_context( \
+  File "/home/samuelshen/vllm/vllm/attention/backends/mla/common.py", line 1225, in _compute_prefill_context
+    assert prefill_metadata.context_chunk_seq_tot is not None
+AssertionError
+
