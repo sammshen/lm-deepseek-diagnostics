@@ -8,7 +8,7 @@ Flash Attention right now but deepseek uses MLA Attention.
 (I specifically ran into `DeepseekV2MLAAttention` with deepseek v2 while I think r1 uses `FlashMLAMetadata`
 which may bypass lmcache and be disguised as flash attention)
 
-Otherwise, the MMLU benchmarks have no change across usage with or without lmcache as expected.
+Otherwise, the MMLU benchmarks have no change across usage with or without lmcache as expected. Specifically, llama 3.1 8B and deepseek v2 (with MLA DISABLED) were tried and negligible accuracy difference (0.001 both times). 
 
 # Set Up
 
