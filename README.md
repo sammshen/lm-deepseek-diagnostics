@@ -1,7 +1,7 @@
 # TL;DR
 
-KV shape mismatch due to Deepseek V2 and V3 MLA KV optimizations that LMCache
-seems to be incompatible with right now.
+KV shape mismatch due to Deepseek V2 and V3 specific MLA (Multi-head Latent Attention)
+KV optimizations that LMCache seems to be incompatible with right now.
 
 # Set Up
 
@@ -13,7 +13,7 @@ to `vllm/entrypoints/api_server.py`:
 app = await init_app(args, llm_engine)
 assert engine is not None
 
-app.state.engine_client = engine ## HII! ADD THIS HERE!!
+app.state.engine_client = engine ## add this here!!
 
 shutdown_task = await serve_http(
 ```
@@ -38,8 +38,8 @@ python3 bench_other.py --backend vllm --host http://localhost     --port 8000 --
 # Diagnosing the Issue:
 
 **Step 1:** First, we check if this error can be reproduced with a small dense model that does
-not use Multi-head Latent Attention like Deepseek does. The suspicion is that the
-error is deepseek sepcific but we need to be absolutely sure.
+not use Multi-head Latent Attention. The suspicion is that the
+error is deepseek/MLA specific but we need to be sure.
 
 Small Dense Model: llama 3.1 8B
 
@@ -88,7 +88,7 @@ Summary: `Average accuracy: 0.684`
 
 
 **Step 2:** We have confirmed that there is a trivial difference (0.683 vs 0.684)
-between using LMCache and not using LMCache with a model like llama. In
+between using LMCache and not using LMCache with a dense model like llama. In
 `vllm/distributed/kv_transfer/kv_connector/utils.py`, we find a critical
 section.
 
@@ -135,10 +135,43 @@ python3 -m vllm.entrypoints.api_server \
   --max-num-seqs 8 \
   --gpu-memory-utilization 0.9 \
   --host 0.0.0.0 \
-  --tensor-parallel-size 1
+  --tensor-parallel-size 2
 ```
 
-2B. vllm v0 WITH LMCACHE
+See full results in `mmlu-results/v0_deepseek2.txt`
+
+Summary: `Average accuracy: 0.578`
+
+2B. vllm v0 WITH LMCACHE WITH `VLLM_MLA_DISABLE=1`
+
+```
+LMCACHE_USE_EXPERIMENTAL=True \
+LMCACHE_TRACK_USAGE=false \
+VLLM_MLA_DISABLE=1 \
+VLLM_USE_V1=0 \
+LMCACHE_CONFIG_FILE=/home/samuelshen/lmc-cpu.yaml \
+python3 -m vllm.entrypoints.api_server \
+  --model deepseek-ai/DeepSeek-V2-Lite \
+  --trust-remote-code \
+  --served-model-name deepseek_test \
+  --max-model-len 8192 \
+  --max-seq-len-to-capture 2048 \
+  --max-num-seqs 8 \
+  --gpu-memory-utilization 0.9 \
+  --host 0.0.0.0 \
+  --tensor-parallel-size 2 \
+  --kv-transfer-config '{"kv_connector":"LMCacheConnector","kv_role":"kv_both","kv_parallel_size":2}'
+```
+
+See full results in `mmlu-results/v0_lmcache_deepseek2_no_mla.txt`
+
+Summary: `Average accuracy: 0.577`
+
+Indeed, disabling VLLM MLA yields the same result.
+
+2C. vllm v0 WITH LMCACHE (PROBLEM RUN)
+
+This was very buggy and would crash everytime I tried the benchmarks.
 
 ```bash
 LMCACHE_USE_EXPERIMENTAL=True \
@@ -155,11 +188,25 @@ python3 -m vllm.entrypoints.api_server \
   --max-num-seqs 8 \
   --gpu-memory-utilization 0.9 \
   --host 0.0.0.0 \
-  --tensor-parallel-size 1 \
+  --tensor-parallel-size 2 \
   --kv-transfer-config '{"kv_connector":"LMCacheConnector","kv_role":"kv_both","kv_parallel_size":2}'
 ```
 
-Indeed, the accuracy is much higher as expected.
+Server starts, but once benchmarks are run, error correctly appears:
+`AssertionError: Only FlashAttention backend is supported for now.`
 
-Since the source of the issue is found, we will not test further with vllm v1 (probably
-not the source of the issue). This seems to be a KV shape mismatch due to Deepseek MLA KV optimizations.
+This is clearly intended behavior. But we will remove these assertions and see
+what catastrophe enfolds.
+
+As expected, the `vllm/vllm/attention/backends/mla/common.py` crashes on:
+```
+    def _compute_prefill_context(
+        self,
+        q: torch.Tensor,
+        kv_c_and_k_pe_cache: torch.Tensor,
+        attn_metadata: MLACommonMetadata,
+    ):
+```
+
+
+Feel free to checkout the errors logs in `mmlu-results/v0_lmcache_deepseek2_errors.txt`
