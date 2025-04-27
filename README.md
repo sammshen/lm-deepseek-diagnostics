@@ -1,9 +1,9 @@
-#TL;DR
+# TL;DR
 
 KV shape mismatch due to Deepseek V2 and V3 MLA KV optimizations that LMCache
 seems to be incompatible with right now.
 
-#Set Up
+# Set Up
 
 Since the SGLang MMLU benchmark uses vllm.entrypoints.api_server instead of
 vllm.entrypoints.openai.api_server, we first need to manually add a line
@@ -35,7 +35,7 @@ MMLU benchmarks (this will test the default 60 subjects) inside
 python3 bench_other.py --backend vllm --host http://localhost     --port 8000 --parallel 16
 ```
 
-#Diagnosing the Issue:
+# Diagnosing the Issue:
 
 **Step 1:** First, we check if this error can be reproduced with a small dense model that does
 not use Multi-head Latent Attention like Deepseek does. The suspicion is that the
